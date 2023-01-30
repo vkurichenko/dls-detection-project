@@ -35,7 +35,7 @@ def predict():
             return render_template('index.html', alert='Upload a file first!')
         if not allowed_file(file.filename):
             return jsonify({'error': 'format not supported'})
-        img_path = '/app/static/images/' + file.filename.rsplit('.', maxsplit=1)[0]
+        img_path = 'static/images/' + file.filename.rsplit('.', maxsplit=1)[0]
         orig_img_path = img_path + '_original.png'
         ssd_img_path = img_path + '_ssd.png'
         yolo_img_path = img_path + '_yolo.png'
