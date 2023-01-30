@@ -25,5 +25,5 @@ This repo contains code for final project of Deep Learning School.
 8. Enjoy!
 
 # Future improvements
-1. Web page will be changed so that its element fit different screen sizes.
+1. Web page will be changed so that its elements fit different screen sizes.
 2. Docker image will be created, so that the app runs in isolated container.
