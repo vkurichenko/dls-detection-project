@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Deep Learning School Detection Project</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    </head>
+
+    <body>
+        <h2 class="text-center">Image Detection with SSD and YOLOv5 models</h2>
+            
+        <form class="p-3 text-center" action="/", method="post" enctype="multipart/form-data">
+            <input class="form-control text-center" type="file" name="imagefile"><br>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-sm">SSD model score threshold</span>
+                <input class="form-control text-center" value="0.5" min="0.05" max="0.95" step="0.05" type="number" id="SSDthreshold" name="SSDthreshold" />
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-sm">YOLOv5 model score threshold</span>
+                <input class="form-control text-center" value="0.5" min="0.05" max="0.95" step="0.05" type="number" id="YOLOthreshold" name="YOLOthreshold" />
+            </div>
+            <input class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold" type="submit" value="Predict Image">
+        </form>
+
+        {% if alert %}
+            <div class="alert alert-danger" role="alert">
+                <p class="text-center">{{alert}}</p>
+            </div>
+        {% endif %} 
+                
+        {% if prediction %}
+            <p class="text-center"> Image is a {{prediction}} </p>
+        {% endif %}
+        {% if orig_image_path %}
+            <div class="text-center">
+                <h3 class="text-center">Original photo</h3>
+                <img src="{{orig_image_path}}" style="max-height: 500px;width: auto"/>
+            </div><br>
+        {% endif %}
+
+        {% if ssd_img_path %}
+            <div class="text-center">
+                <h3 class="text-center">SSD detection</h3>
+                <img src="{{ssd_img_path}}" style="max-height: 500px;width: auto"/><br>
+                <a href="{{ssd_img_path}}" download="SSD" class="btn btn-bd-primary">
+                    <button type="button" class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                            <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"></path>
+                            <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"></path>
+                        </svg>
+                        Download
+                    </button>
+                </a>
+            </div><br>
+        {% endif %}
+
+        {% if yolo_img_path %}
+            <div class="text-center">
+                <h3 class="text-center">YOLOv5 detection</h3>
+                <img src="{{yolo_img_path}}" style="max-height: 500px;width: auto"/><br>
+                <a href="{{yolo_img_path}}" download="YOLOv5" class="btn btn-bd-primary">
+                    <button type="button" class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                            <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"></path>
+                            <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"></path>
+                        </svg>
+                        Download
+                    </button>
+                </a>
+            </div><br>
+        {% endif %}
+    </body>
+</html>
