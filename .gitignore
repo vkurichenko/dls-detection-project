@@ -3,3 +3,5 @@
 app/static/images
 notebooks/test_images
 *.pt
+Dockerfile
+conda_requirements.txt
