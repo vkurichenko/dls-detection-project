@@ -1,6 +1,9 @@
 # Deep Learning School Detection Project
 This repo contains code for final project of Deep Learning School.
 
+# Description
+The aim of the project was to create a web app for Neural Detection. The app uses two models, [SSDlite](https://pytorch.org/vision/main/models/generated/torchvision.models.detection.ssdlite320_mobilenet_v3_large.html#torchvision.models.detection.ssdlite320_mobilenet_v3_large) and [YOLOv5](https://pytorch.org/hub/ultralytics_yolov5/), that were trained on ~80 different classes. The user can choose the score threshold for each model, which is the confidence of the model for a class to be included in prediction.
+
 # Example
 ![](https://github.com/vkurichenko/dls-detection-project/blob/main/example.gif)
 
@@ -30,7 +33,6 @@ This repo contains code for final project of Deep Learning School.
 6. Upload your image, set the models threshold, press `Predict Image`.
 7. Images are saved to `/app/static/images`. Also you can download them via `Download` button.
 8. Enjoy!
-
 
 # Future improvements
 1. Web page will be changed so that its elements fit different screen sizes.
