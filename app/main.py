@@ -5,10 +5,8 @@ import torch
 import torchvision
 from torchvision.io.image import read_image
 import numpy as np
-import matplotlib.pyplot as plt
 from matplotlib.figure import Figure
 import matplotlib.patches as patches
-from itertools import groupby
 from PIL import Image
 import io
 
@@ -89,7 +87,6 @@ def predict():
                 x1, y1, x2, y2 = box.detach().numpy()
                 draw_box(x1, y1, x2, y2, ax=ax, label=label, score=score)
             ax.imshow(img)
-            # ax.set_title(title)
             ax.set(xticklabels=[], yticklabels=[], xticks=[], yticks=[])
             fig.savefig(dest_img_path, format='jpg', bbox_inches='tight')
 
@@ -109,7 +106,6 @@ def predict():
                 x1, y1, x2, y2 = list(map(lambda x: x.item(), box))
                 draw_box(x1, y1, x2, y2, ax=ax, label=result.names[label_key.item()], score=score)
             ax.imshow(np.asarray(img))
-            # ax.set_title(title)
             ax.set(xticklabels=[], yticklabels=[], xticks=[], yticks=[])
             fig.savefig(dest_img_path, format='jpg', bbox_inches='tight')
 
@@ -122,4 +118,4 @@ def predict():
         return jsonify({'error': exc})
 
 if __name__ == '__main__':
-    app.run(port=5050, debug=True, host="0.0.0.0")
+    app.run(port=5050, debug=False, host="0.0.0.0")
