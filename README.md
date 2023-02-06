@@ -17,7 +17,7 @@ The aim of the project was to create a web app for Neural Detection. The app use
 - `example.gif` is an example of app running on `test-image.jpg`.
 - `requirments.txt` contains dependencies.
 
-## Installation via Docker
+## Running the app in a Docker container
 1. Run `docker run --rm --name dls-detection-app -p 5050:5050 vkurichenko/dls-detection:latest` in order to run new container named `dls-detection-app` from `vkurichenko/dls-detection:latest` image located on Docker Hub, exposing `5050` port for the app.
 2. Open `http://0.0.0.0:5050`.
 3. Upload your image, set the models threshold, press `Predict Image`.
