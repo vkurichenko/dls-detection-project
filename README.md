@@ -1,13 +1,13 @@
 # Deep Learning School Detection Project
 This repo contains code for final project of Deep Learning School.
 
-# Description
+## Description
 The aim of the project was to create a web app for Neural Detection. The app uses two models, [SSDlite](https://pytorch.org/vision/main/models/generated/torchvision.models.detection.ssdlite320_mobilenet_v3_large.html#torchvision.models.detection.ssdlite320_mobilenet_v3_large) and [YOLOv5](https://pytorch.org/hub/ultralytics_yolov5/), that were trained on ~80 different classes. The user can choose the score threshold for each model, which is the confidence of the model for a class to be included in prediction.
 
-# Example
+## Example
 ![](https://github.com/vkurichenko/dls-detection-project/blob/main/example.gif)
 
-# Project structure
+## Project structure
 - `app` folder contains files for the Flask app.
     - `main.py` is the app itself.
     - `templates/index.html` is the web representation of the app.
@@ -17,14 +17,14 @@ The aim of the project was to create a web app for Neural Detection. The app use
 - `example.gif` is an example of app running on `test-image.jpg`.
 - `requirments.txt` contains dependencies.
 
-# Installation via Docker
+## Installation via Docker
 1. Run `docker run --rm --name dls-detection-app -p 5050:5050 vkurichenko/dls-detection:latest` in order to run new container named `dls-detection-app` from `vkurichenko/dls-detection:latest` image located on Docker Hub, exposing `5050` port for the app.
 2. Open `http://0.0.0.0:5050`.
 3. Upload your image, set the models threshold, press `Predict Image`.
 4. Images are saved to `/app/static/images`. Also you can download them via `Download` button.
 5. Enjoy!
 
-# Manual installation
+## Manual installation
 1. Create new virtual environment via `conda` or `pyenv` (tested on `Python 3.9.15`).
 2. Install all dependencies from `requirments.txt` file (exact versions while testing are listed there).
 3. Go to `/app` folder.
@@ -34,6 +34,6 @@ The aim of the project was to create a web app for Neural Detection. The app use
 7. Images are saved to `/app/static/images`. Also you can download them via `Download` button.
 8. Enjoy!
 
-# Future improvements
+## Future improvements
 1. Web page will be changed so that its elements fit different screen sizes.
 2. App code will be changed so that the first run of the image detection does not take longer than consequent ones.
